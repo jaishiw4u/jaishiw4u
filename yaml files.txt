@@ -1,0 +1,78 @@
+POD.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: new-pod
+  labels:
+    env: dev
+spec:
+  containers:
+  - name: c1
+    image: nginx
+----------------------------------------------------
+Deploy.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-deploy
+  labels:
+    app: account
+spec:
+  selector:
+    matchLabels:
+      env: prod
+  replicas: 2
+  template:
+    metadata:
+      name: new-deploy-pod
+      labels:
+        env: prod
+    spec:
+      containers:
+      - image: nginx
+        name: prodnginx
+
+----------------------------------------------------
+
+ReplicaContoller
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: new-rc
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: new-pod
+      labels:
+        env: dev
+    spec:
+      containers:
+      - image: nginx
+        name: nginximage
+
+---------------------------------------------------------
+
+ReplicaSets
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: new-rs
+spec:
+  selector:
+    matchLabels:
+      env: test
+  replicas: 2 # Actual should match desired
+  template:
+    metadata:
+      name: new-rs-pod
+      labels:
+        env: test # and condition
+    spec:
+      containers:
+      - image: nginx
+        name: testnginx
