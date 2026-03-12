@@ -1,0 +1,17 @@
+{
+	"name": "DS_SQL_ADSL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_ADSL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "spdevdemo",
+			"table": "Customer"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

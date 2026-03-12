@@ -1,0 +1,9 @@
+{
+	"name": "adfdevamldatamart",
+	"location": "southeastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fc8c2cf9-4f8b-42ac-88e4-c633b0722537",
+		"tenantId": "1c7eb227-665e-4055-a4e3-cb47a00c9cd5"
+	}
+}
